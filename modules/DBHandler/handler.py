@@ -19,6 +19,7 @@ class MyDatabase:
         temp = []
         for row in data:
             temp_dict = {
+                "is_error": False,
                 "id": row.id,
                 "url": row.url,
                 "name": row.name,
@@ -39,6 +40,9 @@ class MyDatabase:
         Session = sessionmaker(bind=self.engine)
         with Session() as session:
             result = session.query(Model).filter(Model.name.like(query_keyword)).all()
+        if not result:
+            err_msg = {"is_error": True, "id": 0, "message": "요청하신 데이터를 찾을 수 없습니다"}
+            return json.dumps(err_msg)
         json_data = self._jsonify(result)
         return json_data
 
