@@ -1,2 +1,2 @@
-__pycache__/
-*.pyc
+modules/DBHandler/__pycache__/*.pyc
+models/__pyacache__/*.pyc
