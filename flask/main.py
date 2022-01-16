@@ -27,7 +27,3 @@ def search_by_name():
     database.connect_db(AVG_DB_URL)
     data = database.select_where_name_is(Avengers, keyword)
     return Response(response=data, status=200, mimetype="application/json")
-
-
-if __name__ == "__main__":
-    app.run(debug=True, host="localhost", port=5001)

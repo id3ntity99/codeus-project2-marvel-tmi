@@ -1,0 +1,11 @@
+click==8.0.3
+Flask==2.0.2
+Flask-Limiter==2.1
+greenlet==1.1.2
+itsdangerous==2.0.1
+Jinja2==3.0.3
+limits==2.3.0
+MarkupSafe==2.0.1
+SQLAlchemy==1.4.29
+uWSGI==2.0.20
+Werkzeug==2.0.2
