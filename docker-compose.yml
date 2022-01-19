@@ -1,13 +1,14 @@
 version: "3.7"
 services:
     flask_1:
-        build: ./flask
-        container_name: flask1
+        image: "jas06113/marvel_tmi_flask_img:latest"
+        container_name: flask
         expose:
             - 5000
+        restart: "unless-stopped"
     proxy:
-        build: ./nginx
-        container_name: nginx
+        image: "jas06113/marvel_tmi_proxy:latest"
+        container_name: nginx 
         ports:
             - "80:80"
         restart: "unless-stopped"
