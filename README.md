@@ -33,3 +33,32 @@
 5. 작업 내용을 커밋하고 원격 저장소로 push한다.
 6. 리뷰를 거친 후 작업 브랜치를 main 브랜치에 merge한다.
 7. 이슈를 닫고 작업 브랜치도 삭제한다.
+
+## 디렉터리 구조
+
+marvel_tmi
+├── docker-compose.yml
+├── flask
+│   ├── db
+│   │   └── avengers.sqlite
+│   ├── Dockerfile
+│   ├── main.py
+│   ├── models
+│   │   ├── avengers.py
+│   │   └── __init__.py
+│   ├── modules
+│   │   └── DBHandler
+│   │       ├── handler.py
+│   │       └── __init__.py
+│   ├── requirements.txt
+│   ├── run.py
+│   ├── util
+│   │   └── apikey_gen.py
+│   └── uwsgi.ini
+├── LICENSE
+├── nginx
+│   ├── Dockerfile
+│   └── nginx.conf
+└── README.md
+
+7 directories, 16 files
