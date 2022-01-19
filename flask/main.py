@@ -18,12 +18,13 @@ API_KEY = os.getenv("API_KEY")
 @app.route("/api/avengers/all")
 @limiter.limit("120/hour")
 def search_all():
-    if request.headers.get("api-key") == API_KEY:
+    request_api_key = request.headers.get("X-API-key")
+    if request_api_key == API_KEY:
         database = MyDatabase()
         database.connect_db(AVG_DB_URL)
         data = database.select_all(Avengers)
         return Response(response=data, status=200, mimetype="application/json")
-    elif request.headers.get("api-key") is None:
+    elif request_api_key is None:
         err_msg = {"success": False, "message": "API key를 요청 헤더에 포함시켜야 합니다."}
         return Response(
             response=json.dumps(err_msg), status=200, mimetype="application/json"
@@ -38,13 +39,14 @@ def search_all():
 @app.route("/api/avengers")
 @limiter.limit("30/hour")
 def search_by_name():
-    if request.headers.get("api-key") == API_KEY:
+    request_api_key = request.headers.get("X-API-key")
+    if request_api_key == API_KEY:
         keyword = request.args.get("search")
         database = MyDatabase()
         database.connect_db(AVG_DB_URL)
         data = database.select_where_name_is(Avengers, keyword)
         return Response(response=data, status=200, mimetype="application/json")
-    elif request.headers.get("api-key") is None:
+    elif request_api_key is None:
         err_msg = {"success": False, "message": "API key를 요청 헤더에 포함시켜야 합니다."}
         return Response(
             response=json.dumps(err_msg), status=200, mimetype="application/json"
