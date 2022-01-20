@@ -1,7 +1,3 @@
 __pycache__
-<<<<<<< HEAD:back/flask/.gitignore
 .env
-=======
-flask/.env
->>>>>>> b38b416fc1cb8e76aec822075a596edab008d89a:back/.gitignore
 *.swp
