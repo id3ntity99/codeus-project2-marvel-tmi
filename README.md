@@ -36,37 +36,29 @@
 
 ## 디렉터리 구조
 
-~~~
-.
-├── LICENSE
+marvel_tmi
 ├── docker-compose.yml
+├── flask
+│   ├── db
+│   │   └── avengers.sqlite
+│   ├── Dockerfile
+│   ├── main.py
+│   ├── models
+│   │   ├── avengers.py
+│   │   └── __init__.py
+│   ├── modules
+│   │   └── DBHandler
+│   │       ├── handler.py
+│   │       └── __init__.py
+│   ├── requirements.txt
+│   ├── run.py
+│   ├── util
+│   │   └── apikey_gen.py
+│   └── uwsgi.ini
+├── LICENSE
 ├── nginx
 │   ├── Dockerfile
 │   └── nginx.conf
-├── flask
-│   ├── modules
-│   │   └── DBHandler
-│   │   ├── handler.py
-│   │   └── **init**.py
-│   ├── db
-│   │   └── avengers.sqlite
-│   ├── models
-│   │   ├── avengers.py
-│   │   └── **init**.py
-│   ├── Dockerfile
-│   ├── uwsgi.ini
-│   ├── run.py
-│   ├── requirements.txt
-│   ├── util
-│   │   └── apikey_gen.py
-│   ├── static
-│   │   ├── caution.png
-│   │   └── styles.css
-│   ├── main.py
-│   └── templates
-│   └── index.html
-├── README.md
-└── structure.txt
+└── README.md
 
-9 directories, 20 files
-~~~
+7 directories, 16 files

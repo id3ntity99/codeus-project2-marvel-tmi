@@ -1,6 +1,6 @@
 from modules.DBHandler.handler import MyDatabase
 from models.avengers import Avengers
-from flask import Flask, request, Response, render_template
+from flask import Flask, request, Response
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from dotenv import load_dotenv
@@ -9,16 +9,10 @@ import json
 
 
 app = Flask(__name__)
-load_dotenv(verbose=True)
 limiter = Limiter(app, key_func=get_remote_address, default_limits=["120 per hour"])
-API_KEY = os.getenv("API_KEY")
 AVG_DB_URL = "./db/avengers.sqlite"
-
-
-@app.route("/")
-@limiter.limit("120/hour")
-def main_page():
-    return render_template("index.html")
+load_dotenv(verbose=True)
+API_KEY = os.getenv("API_KEY")
 
 
 @app.route("/api/avengers/all")
@@ -31,18 +25,12 @@ def search_all():
         data = database.select_all(Avengers)
         return Response(response=data, status=200, mimetype="application/json")
     elif request_api_key is None:
-        err_msg = {
-            "success": False,
-            "message": "API key를 요청 헤더에 포함시켜야 합니다.",
-        }
+        err_msg = {"success": False, "message": "API key를 요청 헤더에 포함시켜야 합니다."}
         return Response(
-            response=json.dumps(err_msg), status=400, mimetype="application/json"
+            response=json.dumps(err_msg), status=200, mimetype="application/json"
         )
     else:
-        err_msg = {
-            "success": False,
-            "message": "잘못된 API key 입니다.",
-        }
+        err_msg = {"success": False, "message": "잘못된 API key 입니다."}
         return Response(
             response=json.dumps(err_msg), status=400, mimetype="application/json"
         )
@@ -59,24 +47,12 @@ def search_by_name():
         data = database.select_where_name_is(Avengers, keyword)
         return Response(response=data, status=200, mimetype="application/json")
     elif request_api_key is None:
-        err_msg = {
-            "success": False,
-            "message": "API key를 요청 헤더에 포함시켜야 합니다.",
-            "code": 400,
-        }
+        err_msg = {"success": False, "message": "API key를 요청 헤더에 포함시켜야 합니다."}
         return Response(
-            response=json.dumps(err_msg), status=400, mimetype="application/json"
+            response=json.dumps(err_msg), status=200, mimetype="application/json"
         )
     else:
-        err_msg = {"success": False, "message": "잘못된 API key 입니다.", "code": 400}
+        err_msg = {"success": False, "message": "잘못된 API key 입니다."}
         return Response(
             response=json.dumps(err_msg), status=400, mimetype="application/json"
         )
-
-
-@app.errorhandler(404)
-def page_not_found(e):
-    err_msg = {"success": False, "message": "요청하신 페이지를 찾을 수 없습니다", "code": 404}
-    return Response(
-        response=json.dumps(err_msg), status=404, mimetype="application/json"
-    )
