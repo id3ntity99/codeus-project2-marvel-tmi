@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const HeaderWrapper = styled.header`
+  position: fixed;
+  width: 100%;
   height: 13vh;
   display: flex;
   justify-content: space-between;
@@ -15,6 +17,7 @@ export const MainLogo = styled(motion.svg)``;
 export const Search = styled.div`
   position: relative;
   svg {
+    cursor: pointer;
     position: absolute;
     right: 0;
   }
