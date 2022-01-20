@@ -3,6 +3,7 @@ from models.avengers import Avengers
 from flask import Flask, request, Response, render_template
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 import json
@@ -11,6 +12,7 @@ import json
 app = Flask(__name__)
 load_dotenv(verbose=True)
 limiter = Limiter(app, key_func=get_remote_address, default_limits=["120 per hour"])
+CORS(app, resources={r"/*": {"origins": "*"}})
 API_KEY = os.getenv("API_KEY")
 AVG_DB_URL = "./db/avengers.sqlite"
 
