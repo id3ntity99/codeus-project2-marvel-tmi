@@ -8,4 +8,9 @@ declare module "styled-components" {
     bgColor: { default: string; lighter: string };
     accentColor: string;
   }
+  export interface LighteTheme {
+    textColor: string;
+    bgColor: { default: string; lighter: string };
+    accentColor: string;
+  }
 }
