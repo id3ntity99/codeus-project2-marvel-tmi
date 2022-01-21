@@ -53,7 +53,58 @@ export const PopUpWrapper = styled(motion.div)`
 `;
 
 export const PopUp = styled(motion.div)`
-  width: 300px;
-  height: 300px;
-  background-color: white;
+  width: 40%;
+  height: auto;
+  background-color: ${props => props.theme.bgColor.lighter};
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
+    url(https://mblogthumb-phinf.pstatic.net/MjAxNzExMjBfMjY3/MDAxNTExMTY4MTk3MjA4.9qSmwAvE_7v49pwbHMOz6_4JYB7r89YOPudsCa5t2W0g.Q9jhzhBnJ3VCPcwACUMLmkK3gcUHx4yC4EcIw0GSi_wg.PNG.citymedia1/2017-11-20_17%3B46%3B35.PNG?type=w800);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+`;
+
+export const PopupHeader = styled.header`
+  background-color: #eb2324;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 10px;
+`;
+
+export const Title = styled.h3`
+  font-weight: 900;
+`;
+
+export const CancelBtn = styled.div`
+  background-color: ${props => props.theme.bgColor.default};
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;
+
+export const PopUpInfo = styled.article`
+  padding: 10px 20px;
+  & > div {
+    &:first-child {
+      margin-top: 20px;
+    }
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    h5 {
+      font-weight: 600;
+    }
+    p {
+      font-size: 0.8rem;
+      a {
+        color: #eb2324;
+      }
+    }
+  }
 `;

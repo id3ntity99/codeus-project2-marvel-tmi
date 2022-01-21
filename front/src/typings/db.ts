@@ -4,7 +4,7 @@ export interface IavengersInfo {
   gender: string;
   id: number;
   name: string;
-  success: true;
+  success: boolean;
   url: string;
   year: number;
   years_since_joining: number;
