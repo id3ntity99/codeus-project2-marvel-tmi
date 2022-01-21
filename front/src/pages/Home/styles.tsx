@@ -11,7 +11,7 @@ import styled from "styled-components";
 // `;
 
 export const PostWrapper = styled.div`
-  padding: 20vh 20px 0;
+  padding: 150px 40px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -3,12 +3,13 @@ import { motion } from "framer-motion";
 
 export const HeaderWrapper = styled.header`
   position: fixed;
+  z-index: 1;
   width: 100%;
-  height: 13vh;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 50px;
   background-color: ${props => props.theme.bgColor.lighter};
 `;
 
