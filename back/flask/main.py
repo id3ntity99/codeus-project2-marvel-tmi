@@ -1,5 +1,5 @@
 from modules.DBHandler.handler import MyDatabase
-from models.avengers import Avengers
+from models.model import Avengers
 from flask import Flask, request, Response, render_template
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
