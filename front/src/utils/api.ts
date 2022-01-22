@@ -10,3 +10,11 @@ export const fetcherAvengers = async () => {
   const { data } = await axios.get(`${BASE_URL}/api/avengers/all`, { headers });
   return data;
 };
+
+export const fetcherKeywordAvengers = async (keyword: string) => {
+  const { data } = await axios.get(
+    `${BASE_URL}/api/avengers?search=${keyword}`,
+    { headers }
+  );
+  return data;
+};

@@ -15,7 +15,7 @@ export const HeaderWrapper = styled.header`
 
 export const MainLogo = styled(motion.svg)``;
 
-export const Search = styled.div`
+export const Search = styled.form`
   position: relative;
   svg {
     cursor: pointer;
