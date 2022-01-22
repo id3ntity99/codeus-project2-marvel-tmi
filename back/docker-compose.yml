@@ -25,7 +25,7 @@ services:
             - 5000
         restart: "unless-stopped"
     proxy:
-        image: "jas06113/marvel_tmi_proxy:latest"
+        image: "jas06113/marvel_tmi_proxy:lb"
         container_name: nginx 
         ports:
             - "80:80"
