@@ -3,6 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import DarkModeButton from "../DarkModeButton";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -48,6 +49,7 @@ const Header = () => {
           ></path>
         </MainLogo>
       </Link>
+      <DarkModeButton />
       <Search onSubmit={onAvengerForm}>
         <SearchInput
           initial={{ scaleX: 0 }}
