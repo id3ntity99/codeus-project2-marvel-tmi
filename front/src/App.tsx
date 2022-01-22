@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { theme, lightTheme } from "./styles/theme";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import Search from "./pages/Search";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/search" element={<Search />} />
           </Routes>
         </Router>
         <ReactQueryDevtools initialIsOpen={true} />
