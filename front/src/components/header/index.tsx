@@ -58,6 +58,7 @@ const Header = () => {
           value={value}
           onChange={onChangeInput}
           type="search"
+          placeholder="Marvel 검색"
         />
         <motion.svg
           onClick={toggleSearch}

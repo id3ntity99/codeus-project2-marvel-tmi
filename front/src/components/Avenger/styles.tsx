@@ -18,6 +18,7 @@ export const Post = styled(motion.div)`
   justify-content: space-between;
   background-color: ${props => props.theme.bgColor.lighter};
   cursor: pointer;
+  overflow: hidden;
 `;
 
 export const Name = styled.h3`
@@ -89,6 +90,7 @@ export const CancelBtn = styled.div`
 `;
 
 export const PopUpInfo = styled.article`
+  color: white;
   padding: 10px 20px;
   & > div {
     &:first-child {
