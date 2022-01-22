@@ -18,10 +18,16 @@ class SessionManager(object):
 
 
 class MyDatabase:
+    def __init__(self):
+        self.engine = None
+
     def connect_db(self, uri) -> None:
         self.engine = db.create_engine("sqlite:///{0}".format(uri))
         self.connection = self.engine.connect()
         self.metadata = db.MetaData()
+
+    def disconnect_db(self) -> None:
+        self.engine.dispose()
 
     def _jsonify(self, data):
         temp = []

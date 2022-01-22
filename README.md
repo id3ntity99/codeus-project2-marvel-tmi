@@ -36,7 +36,7 @@
 
 ## 디렉터리 구조
 
-~~~
+```
 .
 ├── LICENSE
 ├── docker-compose.yml
@@ -69,4 +69,4 @@
 └── structure.txt
 
 9 directories, 20 files
-~~~
+```
