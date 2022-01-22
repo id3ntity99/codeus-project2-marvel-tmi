@@ -11,20 +11,26 @@ const Home = () => {
     fetcherAvengers,
     { refetchOnWindowFocus: false }
   );
+
+  if (isLoading) {
+    return (
+      <>
+        <Header />
+        <PostWrapper>
+          <div>Loding...</div>
+        </PostWrapper>
+      </>
+    );
+  }
+
   return (
     <>
-      {isLoading ? (
-        "loading..."
-      ) : (
-        <>
-          <Header />
-          <PostWrapper>
-            {avengersData?.map(avenger => (
-              <Avenger key={avenger.id} avengerInfo={avenger} />
-            ))}
-          </PostWrapper>
-        </>
-      )}
+      <Header />
+      <PostWrapper>
+        {avengersData?.map(avenger => (
+          <Avenger key={avenger.id} avengerInfo={avenger} />
+        ))}
+      </PostWrapper>
     </>
   );
 };
