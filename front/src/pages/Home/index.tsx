@@ -11,7 +11,6 @@ const Home = () => {
     fetcherAvengers,
     { refetchOnWindowFocus: false }
   );
-  console.log(avengersData);
   return (
     <>
       {isLoading ? (

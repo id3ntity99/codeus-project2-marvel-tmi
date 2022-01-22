@@ -13,6 +13,18 @@ const Search = () => {
     [search, "avengersData"],
     () => fetcherKeywordAvengers(keyword as string)
   );
+
+  if (!Array.isArray(avengersData)) {
+    return (
+      <>
+        <Header />
+        <PostWrapper>
+          <div>Keyword에 해당하는 Marvel캐릭터가 없습니다.</div>
+        </PostWrapper>
+      </>
+    );
+  }
+
   return (
     <>
       <>
