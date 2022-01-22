@@ -14,6 +14,17 @@ const Search = () => {
     () => fetcherKeywordAvengers(keyword as string)
   );
 
+  if (isLoading) {
+    return (
+      <>
+        <Header />
+        <PostWrapper>
+          <div>Loding...</div>
+        </PostWrapper>
+      </>
+    );
+  }
+
   if (!Array.isArray(avengersData)) {
     return (
       <>
@@ -28,16 +39,13 @@ const Search = () => {
   return (
     <>
       <>
-        <Header />
-        {isLoading ? (
-          "loading..."
-        ) : (
-          <PostWrapper>
-            {avengersData?.map(avenger => (
-              <Avenger key={avenger.id} avengerInfo={avenger} />
-            ))}
-          </PostWrapper>
-        )}
+        <Header />(
+        <PostWrapper>
+          {avengersData?.map(avenger => (
+            <Avenger key={avenger.id} avengerInfo={avenger} />
+          ))}
+        </PostWrapper>
+        )
       </>
     </>
   );
