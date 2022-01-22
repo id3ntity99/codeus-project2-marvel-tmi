@@ -1,9 +1,13 @@
 import { useState } from "react";
+import { useSetRecoilState } from "recoil";
+import { isDarkAtom } from "../../atom/atoms";
 import { Circle, ModeZone, ToggleButton, Light, Dark } from "./styles";
 
 const DarkModeButton = () => {
   const [show, setShow] = useState(false);
+  const setDarkAtom = useSetRecoilState(isDarkAtom);
   const onShowCircle = () => {
+    setDarkAtom(prev => !prev);
     setShow(prev => !prev);
   };
   return (
