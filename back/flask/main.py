@@ -32,6 +32,7 @@ def jsonify(data):
 def create_app():
     app = Flask(__name__)
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/avengers.sqlite"
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
 
     # load .env
@@ -59,7 +60,6 @@ def create_app():
         if request_api_key == API_KEY:
             data = Avengers.query.all()
             data = jsonify(data)
-            print(data)
             return Response(response=data, status=200, mimetype="application/json")
         elif request_api_key is None:
             err_msg = {
@@ -93,7 +93,6 @@ def create_app():
             )
             # 데이터베이스 검색 결과가 없으면 아래 메시지를 리턴
             if not data:
-                print("there're no data")
                 err_msg = {"success": False, "message": "요청하신 데이터를 찾을 수 없습니다"}
                 return Response(
                     response=json.dumps(err_msg),
