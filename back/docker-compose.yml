@@ -2,12 +2,30 @@ version: "3.7"
 services:
     flask_1:
         image: "jas06113/marvel_tmi_flask_img:latest"
-        container_name: flask
+        container_name: flask1
+        expose:
+            - 5000
+        restart: "unless-stopped"
+    flask_2:
+        image: "jas06113/marvel_tmi_flask_img:latest"
+        container_name: flask2
+        expose:
+            - 5000
+        restart: "unless-stopped"
+    flask_3:
+        image: "jas06113/marvel_tmi_flask_img:latest"
+        container_name: flask3
+        expose:
+            - 5000
+        restart: "unless-stopped"
+    flask_4:
+        image: "jas06113/marvel_tmi_flask_img:latest"
+        container_name: flask4
         expose:
             - 5000
         restart: "unless-stopped"
     proxy:
-        image: "jas06113/marvel_tmi_proxy:latest"
+        image: "jas06113/marvel_tmi_proxy:lb"
         container_name: nginx 
         ports:
             - "80:80"
