@@ -1,8 +1,7 @@
-import json
-from search import search_bp
-from error_page import error_bp
+from views.search import search_bp
+from views.error_page import error_bp
 from core import limiter
-from flask import Flask, Response, render_template
+from flask import Flask
 from flask_cors import CORS
 from models.model import db
 

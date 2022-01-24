@@ -4,6 +4,7 @@ from flask import Blueprint
 from core import limiter
 import json
 
+
 error_bp = Blueprint("error", __name__)
 limiter.limit("120/hour")(error_bp)
 
