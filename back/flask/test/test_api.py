@@ -53,6 +53,36 @@ class TestApi(unittest.TestCase):
         response = self.tester.get(
             "/api/avengers/all", headers={"x-api-ky": self.API_KEY}
         )
+        self.assertEqual(400, response.status_code)
+
+    def test_error_search_by_name(self):
+        # Request without api key
+        response = self.tester.get("/api/avengers?search=tony")
+        self.assertEqual(400, response.status_code)
+
+        # Request with wrong api key
+        response = self.tester.get(
+            "/api/avengers?search=tony", headers={"X-API-key": "wrong_key"}
+        )
+        self.assertEqual(400, response.status_code)
+
+        # Request with wrong header name
+        response = self.tester.get(
+            "/api/avengers?search=tony", headers={"api-key": self.API_KEY}
+        )
+        self.assertEqual(400, response.status_code)
+
+    def test_errorhandler(self):
+        urls = [
+            "/home",
+            "/about",
+            "/avengers/all",
+            "/avengers/tony",
+            "/avengers?search=jessica",
+        ]
+        for url in urls:
+            response = self.tester.get(url, headers={"X-API-key": self.API_KEY})
+            self.assertEqual(404, response.status_code)
 
 
 if __name__ == "__main__":
