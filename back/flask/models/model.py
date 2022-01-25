@@ -1,10 +1,10 @@
-import sqlalchemy as db
-from sqlalchemy.ext.declarative import declarative_base
-
-Model = declarative_base()
+from flask_sqlalchemy import SQLAlchemy
 
 
-class Avengers(Model):
+db = SQLAlchemy()
+
+
+class Avengers(db.Model):
     __tablename__ = "avengers"
     id = db.Column("id", db.Integer, primary_key=True)
     url = db.Column("url", db.String)
@@ -16,8 +16,8 @@ class Avengers(Model):
     note = db.Column("notes", db.String)
 
 
-class TestModel(Model):
-    __tablename__ = 'test'
+class TestModel(db.Model):
+    __tablename__ = "test"
     id = db.Column("id", db.Integer, primary_key=True)
     url = db.Column("url", db.String)
     name = db.Column("name", db.String)

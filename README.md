@@ -37,36 +37,76 @@
 ## 디렉터리 구조
 
 ```
-.
+codeus-project2-marvel-tmi
+├── back
+│   ├── docker-compose.yml
+│   ├── flask
+│   │   ├── db
+│   │   │   ├── avengers.sqlite
+│   │   │   └── test.sqlite
+│   │   ├── Dockerfile
+│   │   ├── main.py
+│   │   ├── models
+│   │   │   ├── __init__.py
+│   │   │   └── model.py
+│   │   ├── modules
+│   │   │   └── DBHandler
+│   │   │       ├── handler.py
+│   │   │       └── __init__.py
+│   │   ├── requirements.txt
+│   │   ├── run.py
+│   │   ├── static
+│   │   │   ├── caution.png
+│   │   │   └── styles.css
+│   │   ├── templates
+│   │   │   └── index.html
+│   │   ├── test
+│   │   │   └── test_api.py
+│   │   ├── util
+│   │   │   └── apikey_gen.py
+│   │   └── uwsgi.ini
+│   └── nginx
+│       ├── Dockerfile
+│       └── nginx.conf
+├── front
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── public
+│   │   └── index.html
+│   ├── README.md
+│   ├── src
+│   │   ├── App.tsx
+│   │   ├── atom
+│   │   │   └── atoms.ts
+│   │   ├── components
+│   │   │   ├── Avenger
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── styles.tsx
+│   │   │   ├── DarkModeButton
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── styles.tsx
+│   │   │   └── header
+│   │   │       ├── index.tsx
+│   │   │       └── styles.tsx
+│   │   ├── index.tsx
+│   │   ├── pages
+│   │   │   ├── Home
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── styles.tsx
+│   │   │   └── Search
+│   │   │       └── index.tsx
+│   │   ├── react-app-env.d.ts
+│   │   ├── styles
+│   │   │   ├── global-style.ts
+│   │   │   ├── styled.d.ts
+│   │   │   └── theme.ts
+│   │   ├── typings
+│   │   │   └── db.ts
+│   │   └── utils
+│   │       └── api.ts
+│   └── tsconfig.json
 ├── LICENSE
-├── docker-compose.yml
-├── nginx
-│   ├── Dockerfile
-│   └── nginx.conf
-├── flask
-│   ├── modules
-│   │   └── DBHandler
-│   │   ├── handler.py
-│   │   └── **init**.py
-│   ├── db
-│   │   └── avengers.sqlite
-│   ├── models
-│   │   ├── avengers.py
-│   │   └── **init**.py
-│   ├── Dockerfile
-│   ├── uwsgi.ini
-│   ├── run.py
-│   ├── requirements.txt
-│   ├── util
-│   │   └── apikey_gen.py
-│   ├── static
-│   │   ├── caution.png
-│   │   └── styles.css
-│   ├── main.py
-│   └── templates
-│   └── index.html
-├── README.md
-└── structure.txt
+└── README.md
 
-9 directories, 20 files
+25 directories, 44 files
 ```

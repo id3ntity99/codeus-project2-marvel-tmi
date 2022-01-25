@@ -1,6 +1,7 @@
 import sqlalchemy as db
 import json
 from sqlalchemy.orm import sessionmaker
+import warnings
 
 
 class SessionManager(object):
@@ -20,6 +21,7 @@ class SessionManager(object):
 class MyDatabase:
     def __init__(self):
         self.engine = None
+        warnings.warn("The DBHandler module is deprecated", DeprecationWarning)
 
     def connect_db(self, uri) -> None:
         self.engine = db.create_engine("sqlite:///{0}".format(uri))
